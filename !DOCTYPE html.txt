@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Het Volk Staat Op | Voor Onze Mensen, Voor Ons Land</title>
+    <!-- Laadt Tailwind CSS voor moderne styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Gebruik Inter font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        /* Stijl voor content die newline/whitespace respecteert */
+        .whitespace-pre-wrap {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div id="app" class="min-h-screen flex flex-col">
+
+        <!-- Navigatiebalk (Header) -->
+        <header class="bg-gray-900 text-white shadow-lg sticky top-0 z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <!-- Logo / Naam Beweging -->
+                    <div class="flex-shrink-0">
+                        <span class="text-2xl font-extrabold tracking-tight cursor-pointer" onclick="showPage('home')">
+                            NL | Beweging
+                        </span>
+                    </div>
+
+                    <!-- Navigatie Links en Aanmeldstatus -->
+                    <div class="flex items-center space-x-4">
+                        <nav class="flex space-x-4">
+                            <a href="#home" onclick="showPage('home')" class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Home</a>
+                            <a href="#over" onclick="showPage('over')" class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Over Ons</a>
+                            <a href="#manifest" onclick="showPage('manifest')" class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Manifest</a>
+                            <a href="#actueel" onclick="showPage('actueel')" class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Actueel</a>
+                            <a href="#contact" onclick="showPage('contact')" class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Contact</a>
+                        </nav>
+                        <!-- Authenticatie Status Display -->
+                        <div id="auth-status" class="flex-shrink-0">
+                            <span class="text-sm text-gray-400">Bezig met laden...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="flex-grow pt-8 pb-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <!-- 1. Home / Startpagina -->
+                <section id="page-home" class="page-content" style="display: block;">
+                    <div class="bg-white p-8 sm:p-12 rounded-xl shadow-2xl text-center border-t-4 border-indigo-600">
+                        <h1 class="text-5xl sm:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+                            “Wij zijn het <span class="text-indigo-600">hart</span>, wij zijn de <span class="text-indigo-600">ziel</span> van Nederland!”
+                        </h1>
+                        <p class="mt-4 text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto">
+                            Deze beweging staat op voor hen die de <strong>ruggengraat</strong> en het <strong>fundament</strong> van ons land vormen.
+                        </p>
+                        <hr class="my-8 border-t border-gray-200">
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Wij zijn de stem van de boeren, de hoop van de jongeren, de kracht van de gezinnen, de toewijding van de leraren en verpleegkundigen, en de energie van de ondernemers. Wij eisen respect, kansen en waardering voor <strong>al onze mensen</strong>, want <strong>wij zijn Nederland!</strong>
+                        </p>
+                        <button onclick="showPage('manifest')" class="mt-10 inline-flex items-center px-8 py-3 border border-transparent text-lg font-medium rounded-full shadow-lg text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Bekijk Ons Manifest
+                        </button>
+                    </div>
+                </section>
+
+                <!-- 2. Over ons / De Beweging -->
+                <section id="page-over" class="page-content" style="display: none;">
+                    <div class="bg-white p-8 rounded-xl shadow-xl">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-6 border-b-2 border-indigo-600 pb-2">
+                            👥 Over de Beweging: Hart en Ziel van Nederland
+                        </h2>
+                        <p class="text-gray-700 mb-6 text-lg leading-relaxed">
+                            Deze beweging is gestart vanuit een diep geloof in de kracht en de ziel van Nederland. Het is geen initiatief van een politicus of iemand met traditionele macht. Wij staan hier als de stem van één van jullie, die opkomt voor <strong>‘Voor Onze Mensen, Voor Ons Land’</strong>.
+                        </p>
+
+                        <h3 class="text-3xl font-semibold text-indigo-600 mt-8 mb-4">Onze Visie</h3>
+                        <p class="text-gray-700 text-lg leading-relaxed">
+                            Wij geloven dat wij het hart en de ziel van Nederland zijn. De beweging vertegenwoordigt iedereen die elke dag werkt, zorgt, vecht en overleeft: de boeren, de jongeren, de gezinnen, de leraren en verpleegkundigen, en de ondernemers.
+                        </p>
+
+                        <h3 class="text-3xl font-semibold text-indigo-600 mt-8 mb-4">Ons Doel</h3>
+                        <p class="text-gray-700 text-lg leading-relaxed">
+                            Ons doel is om de ruggengraat en het fundament van het land hun respect, kansen en waardering terug te geven. Wij zorgen dat de stem van het volk eindelijk gehoord wordt.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- 3. Standpunten / Manifest -->
+                <section id="page-manifest" class="page-content" style="display: none;">
+                    <div class="bg-white p-8 rounded-xl shadow-xl">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-8 text-center">
+                            📜 Ons Manifest: Voor Onze Mensen, Voor Ons Land
+                        </h2>
+                        <p class="text-lg text-gray-700 mb-10 text-center max-w-2xl mx-auto">
+                            Wij geloven dat de kracht van Nederland in het volk ligt. Ons manifest is een oproep tot actie voor de vijf pijlers die ons land draaiende houden.
+                        </p>
+
+                        <!-- Pijler 1: Boeren -->
+                        <div class="p-6 mb-6 bg-indigo-50 border-l-4 border-indigo-600 rounded-lg">
+                            <h3 class="text-2xl font-semibold text-indigo-800 mb-2">1. De Boeren: De Ruggengraat van Nederland</h3>
+                            <p class="text-gray-700">
+                                Wij staan achter de boeren die elke dag opstaan voordat de zon opkomt en zorgen dat ons voedsel op tafel komt. Zij worstelen tegen bureaucratie en kosten.
+                            </p>
+                            <p class="mt-3 text-xl font-bold text-indigo-600">Oproep: Onze boeren verdienen respect!</p>
+                        </div>
+
+                        <!-- Pijler 2: Jongeren -->
+                        <div class="p-6 mb-6 bg-indigo-50 border-l-4 border-indigo-600 rounded-lg">
+                            <h3 class="text-2xl font-semibold text-indigo-800 mb-2">2. De Jongeren: De Toekomst van Nederland</h3>
+                            <p class="text-gray-700">
+                                De dromen en ambities van onze jongeren mogen niet vervagen, maar moeten gevoed, beschermd en gevierd worden. We mogen hen niet in de steek laten (bijvoorbeeld in de strijd voor betaalbare woningen).
+                            </p>
+                            <p class="mt-3 text-xl font-bold text-indigo-600">Oproep: Onze jongeren verdienen kansen!</p>
+                        </div>
+
+                        <!-- Pijler 3: Gezinnen -->
+                        <div class="p-6 mb-6 bg-indigo-50 border-l-4 border-indigo-600 rounded-lg">
+                            <h3 class="text-2xl font-semibold text-indigo-800 mb-2">3. De Gezinnen: Het Fundament van het Volk</h3>
+                            <p class="text-gray-700">
+                                Gezinnen zijn het fundament van ons land. Zij werken, zorgen, vechten en overleven elke dag. Wij zorgen ervoor dat hun stem gehoord wordt.
+                            </p>
+                            <p class="mt-3 text-xl font-bold text-indigo-600">Oproep: Onze gezinnen worden gehoord!</p>
+                        </div>
+
+                        <!-- Pijler 4: Leraren & Verpleegkundigen -->
+                        <div class="p-6 mb-6 bg-indigo-50 border-l-4 border-indigo-600 rounded-lg">
+                            <h3 class="text-2xl font-semibold text-indigo-800 mb-2">4. Leraren & Verpleegkundigen: De Stille Kracht</h3>
+                            <p class="text-gray-700">
+                                Zij vormen onze kinderen en geven waarden door, zorgen voor leven, genezing en hoop. Zij zijn de toewijding die het land draaiende houdt.
+                            </p>
+                            <p class="mt-3 text-xl font-bold text-indigo-600">Oproep: Onze leraren en verpleegkundigen verdienen waardering en respect!</p>
+                        </div>
+
+                        <!-- Pijler 5: Ondernemers -->
+                        <div class="p-6 mb-0 bg-indigo-50 border-l-4 border-indigo-600 rounded-lg">
+                            <h3 class="text-2xl font-semibold text-indigo-800 mb-2">5. De Ondernemers: De Creatieve Kracht</h3>
+                            <p class="text-gray-700">
+                                Ondernemers bouwen banen, creëren kansen en brengen innovatie. Zij maken Nederland sterk en groot.
+                            </p>
+                            <p class="mt-3 text-xl font-bold text-indigo-600">Oproep: Onze ondernemers verdienen steun!</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Actueel / Nieuws (Toont ALLEEN Goedgekeurde Berichten) -->
+                <section id="page-actueel" class="page-content" style="display: none;">
+                    <div class="bg-white p-8 rounded-xl shadow-xl">
+                        <!-- ID toegevoegd voor dynamische titel -->
+                        <h2 id="actueel-page-title" class="text-4xl font-bold text-gray-900 mb-6 border-b-2 border-indigo-600 pb-2">
+                            📰 Actueel: Goedgekeurde Berichten
+                        </h2>
+
+                        <!-- Content Submission Form - is inactief voor niet-beheerders -->
+                        <div id="post-submission-form" class="mb-10 p-6 bg-green-50 border-2 border-green-300 rounded-xl hidden">
+                            <h3 class="text-2xl font-semibold text-green-800 mb-4">➕ Nieuw Bericht Plaatsen</h3>
+                            <!-- ID toegevoegd voor dynamische info-tekst -->
+                            <p id="post-info-text" class="text-sm text-gray-600 mb-4">
+                                U bent aangemeld met ID: <span id="current-user-id" class="font-mono text-green-700">Bezig met laden...</span>.
+                                **LET OP: Uw berichten verschijnen direct, omdat u de beheerder bent.**
+                            </p>
+                            <div id="post-feedback" class="hidden p-3 mb-4 bg-yellow-200 text-yellow-800 rounded-md font-medium"></div>
+
+                            <form id="add-post-form" onsubmit="addPost(event)">
+                                <div class="mb-4">
+                                    <label for="post-title" class="block text-sm font-medium text-gray-700 mb-1">Titel</label>
+                                    <input type="text" id="post-title" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="post-content" class="block text-sm font-medium text-gray-700 mb-1">Inhoud</label>
+                                    <textarea id="post-content" rows="4" required class="w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                                </div>
+                                <button id="post-submit-btn" type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-150 ease-in-out font-semibold">
+                                    Plaats Bericht Direct
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <!-- Realtime Berichten Container -->
+                        <div id="posts-container">
+                            <div class="mt-8 text-center text-gray-500 italic">Bezig met laden van goedgekeurde berichten...</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- HET MODERATIEPANEEL IS VERWIJDERD omdat de beheerder direct publiceert. -->
+
+                <!-- 5. Contact -->
+                <section id="page-contact" class="page-content" style="display: none;">
+                    <div class="bg-white p-8 rounded-xl shadow-xl">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-6 border-b-2 border-indigo-600 pb-2 text-center">
+                            📞 Contact met de Beweging
+                        </h2>
+                        <p class="text-lg text-gray-700 mb-8 text-center max-w-2xl mx-auto">
+                            Wij zijn de stem van het volk en willen gehoord worden.
+                        </p>
+
+                        <div class="flex flex-col items-center space-y-6">
+                            <!-- E-mail sectie -->
+                            <div class="w-full max-w-sm p-6 bg-indigo-50 rounded-lg border border-indigo-200 text-center">
+                                <p class="text-xl font-semibold text-indigo-800 mb-2">E-mailadres</p>
+                                <a href="#" onclick="sendEmail(event, 'deonbekende2001@outlook.com')" class="text-indigo-600 text-lg break-all hover:underline transition duration-150 ease-in-out">
+                                    deonbekende2001@outlook.com
+                                </a>
+                                <p class="mt-2 text-sm text-gray-600">Voor vragen, perscontact of het delen van een verhaal.</p>
+                            </div>
+
+                            <!-- Boodschap Verspreiden -->
+                            <div class="w-full max-w-sm p-6 bg-gray-100 rounded-lg border border-gray-200 text-center">
+                                <p class="text-xl font-semibold text-gray-800 mb-2">Verspreid de Boodschap</p>
+                                <p class="text-gray-700 leading-relaxed">
+                                    Deel ons Manifest en onze boodschap met uw omgeving om de beweging te vergroten en onze stem te laten horen.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-4 mt-auto">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+                &copy; <span id="year"></span> De Beweging. Alle rechten voorbehouden.
+                <!-- Moderatie-knop is verwijderd want publicatie is nu exclusief. -->
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Firebase SDK Imports -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInWithCustomToken, onAuthStateChanged, signOut, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        // Alleen benodigde Firestore functies behouden
+        import { getFirestore, setLogLevel, collection, query, onSnapshot, addDoc, where } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        
+        // Expose Firebase functions globally for the non-module script block
+        window.initializeApp = initializeApp;
+        window.getAuth = getAuth;
+        window.signInWithCustomToken = signInWithCustomToken;
+        window.onAuthStateChanged = onAuthStateChanged;
+        window.signOut = signOut;
+        window.signInAnonymously = signInAnonymously;
+        window.getFirestore = getFirestore;
+        window.setLogLevel = setLogLevel;
+        window.collection = collection;
+        window.query = query;
+        window.onSnapshot = onSnapshot;
+        window.addDoc = addDoc;
+        window.where = where; 
+    </script>
+
+    <!-- JavaScript voor Applicatie Logica -->
+    <script>
+        // Globale variabelen (MANDATORY uit de Canvas omgeving)
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        // =========================================================================
+        // BEHEERDERS INSTELLING (CRUCIAAL)
+        // 
+        // U vindt uw ID in de header (ID: ...).
+        // 16064387817474936140
+        const ADMIN_ID = '16064387817474936140'; 
+        // =========================================================================
+
+        let app;
+        let db;
+        let auth;
+        let userId = null;
+        let isAuthReady = false;
+
+        // Functie om te controleren of de huidige gebruiker de beheerder is
+        function checkAdminAccess() {
+            // Controleer of de userId is ingesteld en of deze overeenkomt met de hardgecodeerde ADMIN_ID
+            return userId !== null && userId === ADMIN_ID;
+        }
+
+        // Utility om HTML te escapen (voorkomt XSS)
+        function escapeHtml(str) {
+            if (typeof str !== 'string') return str;
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+        
+        // Functie om Firebase te initialiseren en authenticatie te starten
+        async function initFirebase() {
+            try {
+                // 1. Initialize App
+                app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+                setLogLevel('debug'); // Belangrijk voor Firestore logging
+
+                // 2. Auth State Change Listener (luistert naar inloggen/uitloggen)
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        console.log("Aangemelde gebruiker ID:", userId);
+                    } else {
+                        userId = null;
+                        console.log("Geen gebruiker aangemeld.");
+                    }
+                    isAuthReady = true;
+                    renderAuthStatus(); // Update de UI in de header
+                    renderAdminContent(); // Update formulier zichtbaarheid
+                    
+                    // Start data-ophaling nu de auth klaar is, afhankelijk van de pagina
+                    const hash = window.location.hash.substring(1) || 'home';
+                    if (hash === 'actueel') {
+                        fetchPosts(); 
+                    }
+                });
+
+                // 3. Eerste Sign In: Gebruik token, of anders anoniem (garandeert een userId)
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+            } catch (error) {
+                console.error("Fout bij Firebase Initialisatie of Auth:", error);
+            }
+        }
+
+        // Functie om de publieke collectie-referentie op te halen
+        function getPublicCollectionRef(collectionName) {
+            return collection(db, `artifacts/${appId}/public/data/${collectionName}`);
+        }
+        
+        // Rendert de aanmeldstatus in de header
+        function renderAuthStatus() {
+            const authStatusEl = document.getElementById('auth-status');
+            const currentUserIdSpan = document.getElementById('current-user-id');
+            const isAdmin = checkAdminAccess();
+
+            if (!isAuthReady) {
+                authStatusEl.innerHTML = `<span class="text-sm text-gray-400">Bezig met laden...</span>`;
+                return;
+            }
+            
+            if (userId) {
+                let displayIdText;
+                let bgColorClass;
+
+                if (isAdmin) {
+                    // Beheerder: Toon de status en een verkorte ID
+                    displayIdText = 'Beheerder: ' + userId.substring(0, 8) + '...';
+                    bgColorClass = 'bg-indigo-600';
+                } else {
+                    // Niet-beheerder (of ADMIN_ID is nog placeholder): Toon de VOLLEDIGE ID om te kopiëren
+                    displayIdText = 'Uw ID: ' + userId;
+                    bgColorClass = 'bg-green-700';
+                }
+
+                authStatusEl.innerHTML = `
+                    <div class="flex items-center space-x-2">
+                        <span id="display-user-id" class="text-xs px-2 py-1 ${bgColorClass} text-white rounded-full cursor-default transition duration-150 ease-in-out" title="Aangemelde Gebruiker ID - Kopieer deze ID">
+                            ${displayIdText}
+                        </span>
+                        <button onclick="handleSignOut()" class="text-red-400 hover:text-red-300 text-sm font-medium focus:outline-none">
+                            Afmelden
+                        </button>
+                    </div>
+                `;
+                // Toon de volledige ID in de actueel sectie (indien het element bestaat)
+                if (currentUserIdSpan) currentUserIdSpan.textContent = userId;
+            } else {
+                authStatusEl.innerHTML = `<span class="text-sm text-red-400">Niet aangemeld</span>`;
+                if (currentUserIdSpan) currentUserIdSpan.textContent = 'Niet beschikbaar';
+            }
+        }
+        
+        // Functie om de post-formulier en content te tonen/verbergen voor de beheerder
+        function renderAdminContent() {
+            const isOwner = checkAdminAccess();
+            const postFormDiv = document.getElementById('post-submission-form');
+            const actueelTitle = document.getElementById('actueel-page-title');
+            const postInfo = document.getElementById('post-info-text');
+
+            if (isOwner) {
+                // Toon de formulier div voor de beheerder
+                postFormDiv.classList.remove('hidden');
+                
+                // Update de tekst in het formulier
+                if (postInfo) postInfo.innerHTML = `U bent aangemeld als **beheerder** (ID: <span class="font-mono text-green-700">${userId}</span>). Uw berichten verschijnen **direct**.`;
+                
+                // Update titel
+                if (actueelTitle) actueelTitle.textContent = "📰 Actueel: Plaats & Beheer Berichten";
+
+            } else {
+                // Verberg de formulier div voor alle andere gebruikers
+                postFormDiv.classList.add('hidden');
+                
+                // Toon standaard titel voor het publiek
+                if (actueelTitle) actueelTitle.textContent = "📰 Actueel: Goedgekeurde Berichten";
+            }
+        }
+        
+        // Functie voor afmelden
+        window.handleSignOut = async function() {
+            try {
+                await signOut(auth);
+            } catch (error) {
+                console.error("Fout bij het afmelden:", error);
+            }
+        }
+
+        // Functie om GOEDGEKEURDE berichten in realtime op te halen en te renderen
+        function fetchPosts() {
+            if (!isAuthReady || !db) return; 
+
+            const postsRef = getPublicCollectionRef('nieuws_berichten');
+            // Alleen berichten ophalen met status 'approved'
+            const q = query(postsRef, where('status', '==', 'approved')); 
+
+            onSnapshot(q, (snapshot) => {
+                const posts = [];
+                snapshot.forEach((doc) => {
+                    posts.push({ id: doc.id, ...doc.data() });
+                });
+
+                posts.sort((a, b) => b.timestamp - a.timestamp);
+                renderPosts(posts, 'posts-container');
+            }, (error) => {
+                console.error("Fout bij het ophalen van goedgekeurde berichten:", error);
+                document.getElementById('posts-container').innerHTML = `<p class="text-red-500 text-center">Fout bij het laden van berichten. Controleer de console.</p>`;
+            });
+        }
+        
+        // Rendert de posts (nu zonder moderatie-opties)
+        function renderPosts(posts, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = ''; // Wis bestaande berichten
+
+            if (posts.length === 0) {
+                container.innerHTML = `<div class="mt-8 text-center text-gray-500 italic">Er zijn momenteel geen goedgekeurde berichten.</div>`;
+                return;
+            }
+
+            posts.forEach(post => {
+                const timestamp = typeof post.timestamp === 'number' ? post.timestamp : (post.timestamp?.toMillis ? post.timestamp.toMillis() : Date.now());
+                const date = new Date(timestamp).toLocaleString('nl-NL', {
+                    year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+                });
+                
+                const postHtml = `
+                    <div class="p-6 mb-6 bg-white rounded-lg border border-gray-300 shadow-md transition duration-300 hover:shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2">${escapeHtml(post.title)}</h3>
+                        <p class="text-sm text-gray-500 mb-4">
+                            Gepubliceerd op: ${date} door ${post.authorId.substring(0, 8)}...
+                        </p>
+                        <p class="text-gray-700 leading-relaxed whitespace-pre-wrap">${escapeHtml(post.content)}</p>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', postHtml);
+            });
+        }
+
+        // Functie om de inzending van een nieuw bericht af te handelen
+        window.addPost = async function(event) {
+            event.preventDefault();
+
+            // Beveiliging: Alleen de beheerder kan posten
+            if (!checkAdminAccess()) {
+                console.error("Toegang geweigerd: Alleen de beheerder kan berichten plaatsen.");
+                return;
+            }
+            if (!userId || !db) {
+                console.error("Niet aangemeld of Firebase niet klaar.");
+                return;
+            }
+
+            const title = document.getElementById('post-title').value.trim();
+            const content = document.getElementById('post-content').value.trim();
+            const submitBtn = document.getElementById('post-submit-btn');
+            const feedbackEl = document.getElementById('post-feedback');
+
+            if (!title || !content) {
+                feedbackEl.textContent = "Vul zowel een titel als inhoud in.";
+                feedbackEl.classList.remove('hidden', 'bg-yellow-200');
+                feedbackEl.classList.add('bg-red-200');
+                return;
+            }
+            feedbackEl.classList.add('hidden'); // Wis feedback bij nieuwe poging
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Bezig met plaatsen...";
+
+            try {
+                const newPost = {
+                    title: title,
+                    content: content,
+                    authorId: userId,
+                    timestamp: Date.now(), 
+                    status: 'approved' // <-- Altijd direct 'approved' voor de beheerder
+                };
+
+                await addDoc(getPublicCollectionRef('nieuws_berichten'), newPost);
+                
+                // Feedback bericht
+                feedbackEl.textContent = "Bericht succesvol geplaatst! Het is direct zichtbaar op de 'Actueel' pagina.";
+                feedbackEl.classList.remove('hidden', 'bg-red-200');
+                feedbackEl.classList.add('bg-yellow-200');
+
+                // Formulier wissen na succesvolle inzending
+                document.getElementById('add-post-form').reset();
+            } catch (e) {
+                console.error("Fout bij het toevoegen van document: ", e);
+                feedbackEl.textContent = `Fout bij opslaan: ${e.message}. Probeer opnieuw.`;
+                feedbackEl.classList.remove('hidden', 'bg-yellow-200');
+                feedbackEl.classList.add('bg-red-200');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Plaats Bericht Direct";
+            }
+        }
+        
+        // Functie die de e-mail link afhandelt (voor contactpagina)
+        function sendEmail(event, email) {
+            event.preventDefault();
+            window.location.href = `mailto:${email}`;
+        }
+
+        // Functie om de juiste pagina te tonen en de navigatielink te markeren
+        window.showPage = function(pageId) {
+            document.querySelectorAll('.page-content').forEach(section => {
+                section.style.display = 'none';
+            });
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.style.display = 'block';
+            }
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('bg-indigo-600', 'text-white');
+                link.classList.add('text-gray-300', 'hover:bg-gray-700', 'hover:text-white');
+            });
+
+            const activeLink = document.querySelector(`a[href="#${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.remove('text-gray-300', 'hover:bg-gray-700', 'hover:text-white');
+                activeLink.classList.add('bg-indigo-600', 'text-white');
+            }
+            
+            // Logica om data te laden afhankelijk van de pagina
+            if (isAuthReady && db) {
+                if (pageId === 'actueel') {
+                    fetchPosts();
+                    renderAdminContent(); // Zorg ervoor dat het formulier correct wordt weergegeven
+                }
+            }
+
+            history.pushState(null, null, `#${pageId}`);
+        }
+
+        // Bepaal welke pagina te tonen bij het laden
+        function handleLoad() {
+            const hash = window.location.hash.substring(1) || 'home';
+            showPage(hash);
+
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            // Start Firebase
+            initFirebase();
+        }
+
+        // Luister naar hash-veranderingen (bijv. back/forward in browser)
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.substring(1) || 'home';
+            showPage(hash);
+        });
+
+        // Start de app
+        window.onload = handleLoad;
+    </script>
+</body>
+</html>
